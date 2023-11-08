@@ -8,9 +8,6 @@ npm install
 npm run dev
 
 
-## Doc on swagger
-https://myradiobackend.onrender.com/api-docs/
-
 ##
 (El archivo fake-env posee las variables de entorno vacias para poder ser rellenadas a gusto en caso de querer utilizar el proyecto de forma local)
 ##
