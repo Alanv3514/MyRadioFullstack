@@ -124,7 +124,7 @@
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(body)
-            }).then(res => alert(JSON.stringify(res.json())))
+            }).then(res => {alert("Success " + res)})
             .then(data => {
                     console.log(data);
             })
