@@ -2,16 +2,20 @@
 <script>
   let userRole=null;
     function parseJwt(token) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+');
-      const base64Final = base64.replace(/_/g, '/');
-      let jsonPayload = decodeURIComponent(atob(base64Final).split('').map(function(c) {
+      const parts = token.split('.');
+      if (parts.length < 2) {
+        throw new Error('Token inválido, se esperaban al menos 2 partes');
+      }
+      const base64Url = parts[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
         const hex = ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         return '%' + hex;
       }).join(''));
       jsonPayload = JSON.parse(jsonPayload);
       return jsonPayload;
     };
+
     
     const adminLink = document.createElement('li');
 
