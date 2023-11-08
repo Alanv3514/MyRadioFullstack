@@ -56,7 +56,6 @@ const frontController = {
     usersPanel: async (req, res) => {
         try {
             const listaUsers = await User.find({});
-
             return res.render('adminUsers', {
                 users: listaUsers
             });
