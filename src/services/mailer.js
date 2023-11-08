@@ -6,7 +6,6 @@ const emailjs = require('@emailjs/nodejs');
 
 const enviarMail = async (nombre, email, textoHtml) => {
 
-    console.log(`${nombre} - ${email}`);
     let templateParams = {
         user_name: nombre,
         message: textoHtml,
@@ -14,6 +13,7 @@ const enviarMail = async (nombre, email, textoHtml) => {
         from_name: email,
         reply_to: email,
     };
+    
     emailjs
     .send(process.env.EMAIL_SERVICE_ID, process.env.EMAIL_TEMPLATE_ID, templateParams, {
         publicKey: process.env.EMAIL_PUBLIC_KEY,

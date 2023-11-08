@@ -9,7 +9,7 @@ const enviarMail = require('../services/mailer.js');
 exports.getAll = async (req, res) => {
   try {
     const users = await User.find();
-    res.json(users);
+    res.status(200).json({ message: "success", data: [users] });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
