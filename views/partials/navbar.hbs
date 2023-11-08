@@ -30,6 +30,7 @@
     const registerLink = document.createElement('li');
     registerLink.innerHTML = '<a href="/registrar">Registrarse</a>';
 
+
   
 </script>
 
@@ -44,40 +45,48 @@
 <h5>Tu lugar, tu musica</h4>
   <nav id="navbar">
     <ul id="lis2" class="gap-2">
-
     </ul>
     <ul id="lis">
       <li><a href="/">Home</a></li>
       <li><a href="/programas">Programas</a></li>
       <li><a href="/aboutUs">Sobre nosotros</a></li>
       <li><a href="/contactUs">Contactanos</a></li>
+      <span id="login">
+      <li><a href="/login">Login</a></li>
+      <li><a href="/registrar">Registrarse</a></li>
+      </span>
+      <li id="logout"></li>
     </ul>
+
 
   </nav>
 <script>
     const headers = new Headers();
     const authBar = document.getElementById('lis');
-    const adminBar= document.getElementById('lis2');
+
     const token = localStorage.getItem('token');
-    
+
+    const login = document.getElementById('login');
+    const logout = document.getElementById('logout');
+    const adminBar= document.getElementById('lis2');
+
     if(token)
     {
         const user = parseJwt(token);
-        console.log(user);
+        logout.innerHTML = '<a href="/logout">Logout</a>';
+        login.innerHTML = '';
         userRole = user.userRole;
-        console.log(userRole);
         if (userRole === 'admin') {
             adminBar.appendChild(adminLink);
-            authBar.appendChild(logoutLink);
-        } else if (userRole) {
-            authBar.appendChild(logoutLink);
-        }
+        } 
     }
     else
     {
         console.log("no hay token")
-                authBar.appendChild(loginLink);
-                authBar.appendChild(registerLink);
+                logout.innerHTML = '';
+                login.innerHTML = `      <li><a href="/login">Login</a></li>
+      <li><a href="/registrar">Registrarse</a></li>`;
+                adminBar.innerHTML = '';
     }
 
 
