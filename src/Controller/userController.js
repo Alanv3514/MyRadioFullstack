@@ -9,9 +9,9 @@ const enviarMail = require('../services/mailer.js');
 exports.getAll = async (req, res) => {
   try {
     const users = await User.find();
-    res.status(200).json({ message: "success", data: [users] });
+    res.status(200).json({ message: "Success", data: [users] });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message, message: error.message  });
   }
 };
 
@@ -27,9 +27,9 @@ exports.create = async (req, res) => {
       role: req.body.role,
     });
     await user.save();
-    res.status(201).json(user);
+    res.status(201).json({ message: "Success", data: user });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message, message: error.message  });
   }
 };
 
@@ -39,13 +39,13 @@ exports.login = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(400).send({ error: 'User not found' });
+    return res.status(400).send({ error: 'Usuario no encontrado' });
   }
 
   const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
   if (!isPasswordCorrect) {
-    return res.status(400).send({ error: 'Incorrect password' });
+    return res.status(400).send({ error: 'Contrasenia Incorrecta' });
   }
 
   const token = jwt.sign({ _id: user._id, userRole: user.role, email: user.email }, process.env.JWT_SECRET);
@@ -54,15 +54,16 @@ exports.login = async (req, res) => {
     .header('Authorization', `${token}`)
     .json( "login success!!" );
 };
+
 exports.delete = async (req, res) => {
   try {
       const user = await User.findByIdAndDelete(req.params.id);
       if (!user) {
           return res.status(404).json({ error: 'User not found' });
       }
-      res.status(200).json({ message: 'User deleted' });
+      res.status(204).json({ message: "Success - Usuario Borrado" });
   } catch (error) {
-      res.status(400).json({ error: error.message });
+      res.status(400).json({ error: error.message , message: error.message });
   }
 };
 
@@ -78,15 +79,14 @@ exports.update = async (req, res) => {
     user.email = req.body.email;
     user.name = req.body.name;
     await user.save();
-    res.status(200).json(user);
+    res.status(200).json({ message: "Success", data: user });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message, message: error.message  });
   }
 };
 
 exports.logout = async (req, res) => {
-  res.status(200).clearCookie('token').json({ message: 'Logged out' });
-  //res.redirect('/');
+  res.status(200).clearCookie('token').json({ message: 'Success - Logged out' });
 }
 
 
@@ -96,11 +96,10 @@ exports.sendMail = async (req, res) => {
   
   try {
     await enviarMail(name, email, message);
-    console.log(message);
-    res.status(200).json({ message: 'Mail sent' });
+    res.status(200).json({ message: 'Success - Email enviado' });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Error sending mail' });
+    res.status(500).json({ error: 'Error enviando email', message: 'Error enviando email'  });
   }
 
 };

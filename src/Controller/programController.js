@@ -4,9 +4,9 @@ const Program = require('../Model/program.js');
 exports.getAll = async (req, res) => {
     try {
         const programs = await Program.find();
-        res.json(programs);
+        res.status(200).json({ message: "Success", data: [programs] });
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(400).json({ error: error.message, message: error.message   });
     }
 };
 
@@ -17,9 +17,9 @@ exports.getOne = async (req, res) => {
         if (!program) {
             return res.status(404).json({ error: 'Program not found' });
         }
-        res.json(program);
+        res.status(200).json({ message: "Success", data: program });
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(400).json({ error: error.message, message: error.message   });
     }
 };
 
@@ -27,9 +27,9 @@ exports.create = async (req, res) => {
     try {
         const program = new Program(req.body);
         await program.save();
-        res.status(201).json(program);
+        res.status(201).json({ message: "Success", data: program });
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(400).json({ error: error.message, message: error.message   });
     }
 };
 
@@ -39,9 +39,9 @@ exports.update = async (req, res) => {
         if (!program) {
             return res.status(404).json({ error: 'Program not found' });
         }
-        res.json(program);
+        res.status(200).json({ message: "Success", data: program });
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(400).json({ error: error.message, message: error.message   });
     }
 };
 
@@ -51,8 +51,8 @@ exports.delete = async (req, res) => {
         if (!program) {
             return res.status(404).json({ error: 'Program not found' });
         }
-        res.json({ message: 'Program deleted' });
+        res.status(204).json({ message: "Success - Programa Borrado"});
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.status(400).json({ error: error.message, message: error.message   });
     }
 };

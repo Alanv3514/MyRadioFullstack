@@ -147,7 +147,7 @@
             const data = await response.json();
             alert(data.message);
         } catch (error) {
-            alert(error);
+            alert(error.message);
         }
     }
 
@@ -183,7 +183,6 @@
             let url = `/api/programs/${id}`;
             const data = enviarPeticion(url, body, method);
 
-            return (JSON.stringify(data));
         }
 
         const createProgram = async () => {
@@ -221,7 +220,6 @@
             let url = `/api/programs`;
             const data = enviarPeticion(url, body, method);
 
-            return (JSON.stringify(data));
         }
 
         const deleteProgram = async () => {
@@ -235,7 +233,6 @@
             let url = `/api/programs/${id}`;
             const data = enviarPeticion(url, body, method);
 
-            return (JSON.stringify(data));
         }
 
         

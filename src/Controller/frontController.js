@@ -7,8 +7,8 @@ const frontController = {
 
     login: (req, res) => {
         res.render('login');
-
     },
+    
     home: async (req, res) => {
         try {
             const listaProgramas = await Program.find({});
