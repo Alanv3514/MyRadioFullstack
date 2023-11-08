@@ -114,6 +114,7 @@
 
 
 
+
     const enviarPeticion = async (url, body, method) => {
             const token = localStorage.getItem('token');
             fetch(url, {
@@ -123,16 +124,15 @@
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(body)
-            }).then(res => res.json())
-                .then(data => {
-                    alert(JSON.stringify(data.message));
-                    console.log(data.message);
-                })
+            }).then(res => alert(JSON.stringify(res.json().message));)
+            .then(data => {
+                    console.log(data);
+            })
                 .catch(err => {
-                    console.log(err);
                     alert(JSON.stringify(err));
                 });
 }
+
 
     const updateUser = async () => {
         const id = document.getElementById('_id').value;
