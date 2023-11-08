@@ -6,8 +6,8 @@ const authGuard = require('../Middleware/auth.js');
 // Rutas de Front
 router.get('/', frontController.home);
 router.get('/login', frontController.login);
-router.get('/contactUs', frontController.contactUs);
-router.get('/aboutUs', frontController.aboutUs);
+router.get('/contactanos', frontController.contactUs);
+router.get('/sobreNosotros', frontController.aboutUs);
 router.get('/programas', frontController.programsList);
 router.get('/registrar', frontController.register);
 router.get('/logout', frontController.logout);

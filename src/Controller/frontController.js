@@ -1,5 +1,4 @@
 const { log } = require('console');
-const jwt = require('jsonwebtoken');
 const Program = require('../Model/program');
 const User = require('../Model/user');
 
@@ -25,10 +24,10 @@ const frontController = {
     },
 
     contactUs: (req, res) => {
-        render('contactUs');
+        res.render('contactanos');
     },
     aboutUs: (req, res) => {
-        res.render('aboutUs');
+        res.render('sobreNosotros');
     },
     programsList: async (req, res) => {
         try {

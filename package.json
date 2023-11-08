@@ -16,7 +16,6 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "emailjs": "^4.0.3",
@@ -25,7 +24,6 @@
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "jsonwebtoken": "^9.0.2",
-    "localStorage": "^1.0.4",
     "method-override": "^3.0.0",
     "mongoose": "^7.5.2",
     "morgan": "^1.9.1",
@@ -35,7 +33,6 @@
     "npmlog": "^7.0.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "sessionstorage": "^0.1.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
   }

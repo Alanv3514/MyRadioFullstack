@@ -3,8 +3,6 @@ const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();
 const emailjs = require('@emailjs/nodejs');
-const { env } = require('process');
-
 
 const enviarMail = async (nombre, email, textoHtml) => {
 
