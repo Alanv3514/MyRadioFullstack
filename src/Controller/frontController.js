@@ -13,7 +13,7 @@ const frontController = {
     home: async (req, res) => {
         try {
             const listaProgramas = await Program.find({});
-            console.log(listaProgramas)
+
             return res.render('home', {
                 programas: listaProgramas
             });
@@ -33,7 +33,7 @@ const frontController = {
     programsList: async (req, res) => {
         try {
             const listaProgramas = await Program.find({});
-            console.log(listaProgramas)
+
             return res.render('programas', {
                 programas: listaProgramas
             });
@@ -57,7 +57,7 @@ const frontController = {
     usersPanel: async (req, res) => {
         try {
             const listaUsers = await User.find({});
-            console.log(listaUsers)
+
             return res.render('adminUsers', {
                 users: listaUsers
             });
@@ -70,7 +70,7 @@ const frontController = {
     programPanel: async (req, res) => {
         try {
             const listaProgramas = await Program.find({});
-            console.log(listaProgramas)
+
             return res.render('adminPrograms', {
                 programas: listaProgramas
             });
