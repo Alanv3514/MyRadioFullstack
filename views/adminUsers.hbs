@@ -158,7 +158,7 @@ const enviarPeticion = async (url, body, method) => {
             body.role = role;
         }
         let method = 'PUT';
-        let url = `http://localhost:3000/api/users/${id}`;
+        let url = `/api/users/${id}`;
         const data = enviarPeticion(url, body, method);
 
         return (JSON.stringify(data));
@@ -188,7 +188,7 @@ const enviarPeticion = async (url, body, method) => {
             return;
         }
         let method = 'POST';
-        let url = `http://localhost:3000/api/users/register`;
+        let url = `/api/users/register`;
         const data = enviarPeticion(url, body, method);
 
         return (JSON.stringify(data));
@@ -202,7 +202,7 @@ const enviarPeticion = async (url, body, method) => {
             return;
         }
         let method = 'DELETE';
-        let url = `http://localhost:3000/api/users/${id}`;
+        let url = `/api/users/${id}`;
         const data = enviarPeticion(url, body, method);
 
         return (JSON.stringify(data));

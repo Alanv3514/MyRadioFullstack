@@ -180,7 +180,7 @@
                 body.imageLink = imageLink;
             }
             let method = 'PUT';
-            let url = `http://localhost:3000/api/programs/${id}`;
+            let url = `/api/programs/${id}`;
             const data = enviarPeticion(url, body, method);
 
             return (JSON.stringify(data));
@@ -218,7 +218,7 @@
                 return;
             }
             let method = 'POST';
-            let url = `http://localhost:3000/api/programs`;
+            let url = `/api/programs`;
             const data = enviarPeticion(url, body, method);
 
             return (JSON.stringify(data));
@@ -232,7 +232,7 @@
                 return;
             }
             let method = 'DELETE';
-            let url = `http://localhost:3000/api/programs/${id}`;
+            let url = `/api/programs/${id}`;
             const data = enviarPeticion(url, body, method);
 
             return (JSON.stringify(data));
