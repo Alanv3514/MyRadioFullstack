@@ -127,11 +127,9 @@ const enviarPeticion = async (url, body, method) => {
             },
             body: JSON.stringify(body)
         });
-        alert(response.json().message);
+        const mensaje = await response.json().message
+        alert(mensaje);
     } 
-    catch (error) {
-        alert(error);
-    }
 }
 
     const updateUser = async () => {

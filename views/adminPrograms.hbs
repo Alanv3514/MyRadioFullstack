@@ -143,11 +143,11 @@
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(body)
+
             });
-            alert(response.json().message);
-        } catch (error) {
-            alert(error);
-        }
+        const mensaje = await response.json().message
+        alert(mensaje);
+        } 
     }
 
         const updateProgram = async () => {
