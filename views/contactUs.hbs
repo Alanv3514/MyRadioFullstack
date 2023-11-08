@@ -1,0 +1,68 @@
+<div class="contact-form">
+    <form>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="enviarPeticion()">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+
+
+
+    const enviarPeticion = async (url, body) => {
+
+
+
+        try {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const body = {};
+            if (name) {
+                body.name = name;
+            }
+            if (email) {
+                body.email = email;
+            }
+            if (message) {
+                body.message = message;
+            }
+            if (!name || !email || !message) {
+                alert('Faltan campos por rellenar');
+                return;
+            }
+            const response = await fetch('http://localhost:3000/api/mailer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+            const data = await response.json();
+            alert(data.message);
+            window.location.replace('/')
+        } catch (error) {
+            alert(error);
+        }
+    }
+
+    envioMail(nombre, email)
+        .then(res => console.log('Email enviado'))
+        .catch(err => console.log(err));
+
+
+</script>

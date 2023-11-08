@@ -1,0 +1,192 @@
+/* Estilos globales */
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header nav {
+  text-align: right;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px !important; 
+  margin: 10px;
+}
+
+/* Estilos para el banner */
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+.banner-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.banner-content h2 {
+  margin: 0;
+}
+
+.banner-content p {
+  margin: 10px 0;
+}
+
+.banner-content a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Estilos para el formulario de contacto */
+.contact-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Estilos para la sección de noticias */
+.news-container {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-box {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.news-box h3 {
+  margin-top: 0;
+}
+
+.news-box img {
+  width: 100%;
+}
+
+.news-box a {
+  background-color: #333;
+  width: fit-content;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: flex;
+}
+
+.news-box-text {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+}
+
+/* Estilos para las cajas de programas */
+.programs-box {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+/* Estilos para el efecto de escala en las imágenes del footer */
+footer img {
+  width: 35px;
+  margin: 0 1px 0 1px;
+}
+
+footer img:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
+}
+

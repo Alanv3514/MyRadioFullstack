@@ -1,0 +1,79 @@
+
+<script>
+  let userRole=null;
+  function parseJwt(token) {
+      let base64Url = token.split('.')[1];
+      let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+      return JSON.parse(jsonPayload);
+  };
+    const adminLink = document.createElement('li');
+
+    adminLink.innerHTML = '<a class="ms-2" href="/UsersPanel">Admin:Users</a>';
+    adminLink.innerHTML += '<a class="ms-2" href="/ProgramsPanel">Admin:Programs</a>';
+    const logoutLink = document.createElement('li');
+    logoutLink.innerHTML = '<a href="/logout">Logout</a>';
+
+    const loginLink = document.createElement('li');
+    loginLink.innerHTML = '<a href="/login">Login</a>';
+
+    const registerLink = document.createElement('li');
+    registerLink.innerHTML = '<a href="/registrar">Registrarse</a>';
+
+  
+</script>
+
+<div style="float:right;">
+  <audio controls autoplay muted playsinline volume="0.1">
+    <source src="http://cdn.instream.audio:9288/stream" type="audio/mpeg">
+    Tu navegador no soporta el elemento audio.
+  </audio>
+</div>
+
+<h1>Radio</h1>
+<h5>Tu lugar, tu musica</h4>
+  <nav id="navbar">
+    <ul id="lis2" class="gap-2">
+
+    </ul>
+    <ul id="lis">
+      <li><a href="/">Home</a></li>
+      <li><a href="/programas">Programas</a></li>
+      <li><a href="/aboutUs">Sobre nosotros</a></li>
+      <li><a href="/contactUs">Contactanos</a></li>
+    </ul>
+
+  </nav>
+<script>
+    const headers = new Headers();
+    const authBar = document.getElementById('lis');
+    const adminBar= document.getElementById('lis2');
+    const token = localStorage.getItem('token');
+    
+    if(token)
+    {
+        const user = parseJwt(token);
+        console.log(user);
+        userRole = user.userRole;
+        console.log(userRole);
+        if (userRole === 'admin') {
+            adminBar.appendChild(adminLink);
+            authBar.appendChild(logoutLink);
+        } else if (userRole) {
+            authBar.appendChild(logoutLink);
+        }
+    }
+    else
+    {
+        console.log("no hay token")
+                authBar.appendChild(loginLink);
+                authBar.appendChild(registerLink);
+    }
+
+
+
+
+</script>
+

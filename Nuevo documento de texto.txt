@@ -1,0 +1,3 @@
+crear un admin dashboard que permita crear posts, programas y usuarios, asi como editarlos.
+necesita: dos secciones, a l aizquierda un selector para elgir que vasmo a hacer, a la derecha la respuesta que se obtiene de hacer un fetch getAll usando el selector de la izquierda.
+luego de seleccionar lo que queremos hacer )post, programa o usuario) se debe pedir los datos corresponientes con un form, agregar boton de clear y submit

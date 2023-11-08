@@ -1,0 +1,29 @@
+
+            <section class="banner">
+                <div id="carouselExampleIndicators" class="carousel slide w-100" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {{#each programas}}
+                            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{@index}}" {{#if @first}}class="active"{{/if}}></li>
+                        {{/each}}
+                    </ol>
+                    <div class="carousel-inner">
+                        {{#each programas}}
+                            <div class="carousel-item banner {{#if @first}}active{{/if}}">
+                                <img src="{{imageLink}}" class="d-block w-100" alt="{{_id}}">
+                                <div class="carousel-caption d-none d-md-block ">
+                                    <h2>{{name}} from {{ schelude}}</h5>
+                                    <p>{{description}}</p>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </a>
+                </div>
+            </section>

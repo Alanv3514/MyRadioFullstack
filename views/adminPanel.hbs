@@ -1,0 +1,98 @@
+<!-- FILEPATH: c:\Users\Alan\Desktop\Mis Proyectos\SABADOREACT\FinalDigitalersHBS\Backend\views\admin.hbs -->
+
+<!-- Left section with selector -->
+<div class="left-section">
+    <h2>Admin Dashboard</h2>
+    <select id="selector">
+        <option value="posts">Posts</option>
+        <option value="programs">Programs</option>
+        <option value="users">Users</option>
+    </select>
+</div>
+
+<!-- Right section with response from fetch -->
+<div class="right-section">
+    <h2 id="section-title"></h2>
+    <div id="response"></div>
+</div>
+
+<!-- Form for creating/editing data -->
+<div class="form-section">
+    <h2 id="form-title"></h2>
+    <form id="data-form">
+        <!-- Input fields for data -->
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <!-- Clear and submit buttons -->
+        <button type="button" id="clear-btn">Clear</button>
+        <button type="submit" id="submit-btn">Submit</button>
+    </form>
+</div>
+
+<!-- Script for handling fetch and form submission -->
+<script>
+    const selector = document.getElementById('selector');
+    const sectionTitle = document.getElementById('section-title');
+    const response = document.getElementById('response');
+    const formTitle = document.getElementById('form-title');
+    const dataForm = document.getElementById('data-form');
+    const clearBtn = document.getElementById('clear-btn');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Function to retrieve token from localStorage
+    function getToken() {
+        return localStorage.getItem('token');
+    }
+
+        // Function to handle fetch and display response
+        function handleFetch() {
+            const endpoint = selector.value;
+            fetch(`/api/${endpoint}`, {
+                headers: {
+                    'Authorization': `Bearer ${getToken()}`
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    sectionTitle.textContent = endpoint.toUpperCase();
+                    response.innerHTML = JSON.stringify(data);
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Function to handle form submission
+        function  (event) {
+            event.preventDefault();
+            const endpoint = selector.value;
+            const formData = new FormData(dataForm);
+            const data = Object.fromEntries(formData.entries());
+            fetch(`/api/${endpoint}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getToken()}`
+                },
+                body: JSON.stringify({ data}) // add body field to the request body
+            })
+                .then(response => response.json())
+                .then(data => {
+                    response.innerHTML = JSON.stringify(data);
+                    dataForm.reset();
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Event listeners for selector and form submission
+        selector.addEventListener('change', handleFetch);
+        dataForm.addEventListener('submit', handleFormSubmit);
+
+        // Function to handle clear button click
+        function handleClear() {
+            dataForm.reset();
+        }
+
+        // Event listener for clear button
+        clearBtn.addEventListener('click', handleClear);
+    </script>

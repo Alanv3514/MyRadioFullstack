@@ -1,0 +1,23 @@
+<!-- FILEPATH: c:\Users\Alan\Desktop\Mis Proyectos\SABADOREACT\FinalDigitalersHBS\Backend\views\logout.hbs -->
+
+<div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title">Cerraste sesión con éxito</h5>
+        <p class="card-text">Serás redirigido a la página principal en un momento.</p>
+    </div>
+</div>
+
+
+            <script>
+                // Eliminar la cookie 'token'
+                document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                // Eliminar el UserRole del localStorage
+                localStorage.removeItem('UserRole');
+                localStorage.removeItem('token');
+                user=null;
+                admin=null;
+                // Redirigir a la página principal
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 1000);
+            </script>
