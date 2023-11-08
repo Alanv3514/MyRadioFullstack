@@ -38,7 +38,6 @@
         .then(response => {
             if (response) {
                 // Guardar el token del header Authorization en un localStorage
-                localStorage.setItem('userRole', response.headers.get('userRole'));
                 localStorage.setItem('token', response.headers.get('Authorization'));
                 console.log(response.headers.get('UserRole'));
                 window.location.href = "/";

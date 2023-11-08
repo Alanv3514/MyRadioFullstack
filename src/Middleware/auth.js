@@ -1,7 +1,6 @@
 const jwtUtil = require('../utils/jwt.util.js');
 
 module.exports = roles => async (req, res, next) => {
-    console.log(req.headers.authorization)
     let token = req.headers.authorization;
     if (token && token.startsWith('Bearer ')) {
         token = token.slice(7, token.length);

@@ -49,7 +49,7 @@ app.set('view engine', '.hbs');
 
 
 const START = (port) => {
-    app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+    app.listen(port, () => console.log(`MyRadio listening port ${port}!`));
 
     return app;
 }
