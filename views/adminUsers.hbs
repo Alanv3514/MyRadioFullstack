@@ -124,7 +124,7 @@
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify(body)
-            }).then(res => alert(JSON.stringify(res.json().message));)
+            }).then(res => alert(JSON.stringify(res.json())))
             .then(data => {
                     console.log(data);
             })
@@ -227,8 +227,7 @@
             deleteForm();
         }
     });
-    let button= document.getElementById('boton');
-    button.addEventListener('click', pedir);
+
 
     const pedir = async () => {
         let selectedAction = actionSelect.value;
@@ -243,5 +242,6 @@
         location.reload();
     }
 
-
+    let button= document.getElementById('boton');
+    button.addEventListener('click', pedir);
 </script>
