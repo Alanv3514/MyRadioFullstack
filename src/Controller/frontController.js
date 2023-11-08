@@ -25,7 +25,7 @@ const frontController = {
     },
 
     contactUs: (req, res) => {
-        res.render('contactUS');
+        res.status(200).render('contactUS');
     },
     aboutUs: (req, res) => {
         res.render('aboutUs');
