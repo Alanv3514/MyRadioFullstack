@@ -1,0 +1,41 @@
+        <div class="d-flex justify-content-center p-5">
+        <div  id="cardD" class="d-flex container justify-content-around">
+            <div class="card flex-md-row flex-lg-row" >
+
+                <img src="{{ programa.imageLink }}" class="border m-md-3 me-md-1 col-md-6 m-lg-3 me-lg-1 col-lg-6" alt="Program Image" >
+                <div class="card-body d-flex flex-column border ms-lg-1 m-lg-3 align-items-center col-lg-6 ms-md-1 m-md-3 col-md-6 justify-content-between">
+                    <div class ="nd-card w-100" >
+                        <div class="d-flex justify-content-between ">
+                            <h5 class="card-title fs-3">{{programa.name}}</h5>
+                        </div>
+                        <p class="fs-5">({{programa.category}})</p>
+                        <p class="col-12 fs-6 flex-wrap">{{programa.description}}</p>
+
+                    </div>
+                    <div class="d-flex w-100 gap-3 justify-content-between footer-card">
+                            <p >Horario: {{programa.schedule}}</p>
+
+                            <p >Host: {{programa.host}}</p>
+                            
+                                <a href="javascript:history.back()" class="fs-5"><button>Volver</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{{!-- <div class="d-flex row justify-content-center">
+    <h2 class="ms-3 align-text-center">{{ programa.name }}</h2>
+    <div class="d-flex justify-content-center container-fluid gap-2">
+        <img src="{{ programa.imageLink }}" class=" w-25 align-self-center" alt="Program Image" height="240">
+        <div class="d-flex col mt-0">
+            <p class="card-text col-8 me-2 ms-2">{{ programa.description }}</p>
+            <ul class="col-3">
+                <li class="">Horario: {{ programa.schedule }}</li>
+                <li class="">Categoria: {{ programa.category }}</li>
+                <li class="">Host: {{ programa.host }}</li>
+            </ul>
+        </div>
+    </div>
+</div> --}}

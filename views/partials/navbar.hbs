@@ -20,20 +20,20 @@
     const adminLink = document.createElement('li');
 
     adminLink.innerHTML = '<a class="ms-2" href="/UsersPanel">Admin:Users</a>';
-    adminLink.innerHTML += '<a class="ms-2" href="/ProgramsPanel">Admin:Programs</a>';
+    adminLink.innerHTML += '<a class="ms-2 " href="/ProgramsPanel">Admin:Programs</a>';
     const logoutLink = document.createElement('li');
-    logoutLink.innerHTML = '<a href="/logout">Logout</a>';
+    logoutLink.innerHTML = '<a class="nav-link"  href="/logout">Logout</a>';
 
     const loginLink = document.createElement('li');
-    loginLink.innerHTML = '<a href="/login">Login</a>';
+    loginLink.innerHTML = '<a class="nav-link"  href="/login">Login</a>';
 
     const registerLink = document.createElement('li');
-    registerLink.innerHTML = '<a href="/registrar">Registrarse</a>';
+    registerLink.innerHTML = '<a class="nav-link"  href="/registrar">Registrarse</a>';
 
 </script>
 
-<div style="float:right;">
-  <audio controls autoplay muted playsinline volume="0.1">
+<div class="d-flex justify-content-end">
+  <audio controls autoplay muted playsinline volume="0.1" class="float-end text-center">
     <source src="http://cdn.instream.audio:9288/stream" type="audio/mpeg">
     Tu navegador no soporta el elemento audio.
   </audio>
@@ -41,22 +41,40 @@
 
 <h1>Radio</h1>
 <h5>Tu lugar, tu musica</h4>
-  <nav id="navbar">
-    <ul id="lis2" class="gap-2">
-    </ul>
-    <ul id="lis">
-      <li><a href="/">Home</a></li>
-      <li><a href="/programas">Programas</a></li>
-      <li><a href="/sobreNosotros">Sobre nosotros</a></li>
-      <li><a href="/contactanos">Contactanos</a></li>
-      <span id="login">
-      <li><a href="/login">Login</a></li>
-      <li><a href="/registrar">Registrarse</a></li>
-      </span>
-      <li id="logout"></li>
-    </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
 
-
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul id="lis" class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/programas">Programas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sobreNosotros">Sobre nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contactanos">Contactanos</a>
+          </li>
+          <span id="login" class="d-flex flex-column flex-sm-row flex-md-row flex-lg-row col">
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item  ">
+              <a class="nav-link" href="/registrar">Registrarse</a>
+            </li>
+          </span>
+          <li id="logout" class="nav-item "></li>
+        </ul>
+        <ul id="lis2" class="navbar-nav">
+        </ul>
+      </div>
+    </div>
   </nav>
 <script>
     const headers = new Headers();
@@ -71,7 +89,7 @@
     if(token)
     {
         const user = parseJwt(token);
-        logout.innerHTML = '<a href="/logout">Logout</a>';
+        logout.innerHTML = '<a class="nav-link"  href="/logout">Logout</a>';
         login.innerHTML = '';
         userRole = user.userRole;
         if (userRole === 'admin') {
@@ -82,8 +100,8 @@
     {
         console.log("no hay token")
                 logout.innerHTML = '';
-                login.innerHTML = `      <li><a href="/login">Login</a></li>
-      <li><a href="/registrar">Registrarse</a></li>`;
+                login.innerHTML = `      <li><a class="nav-link"  href="/login">Login</a></li>
+      <li><a class="nav-link"  href="/registrar">Registrarse</a></li>`;
                 adminBar.innerHTML = '';
     }
 

@@ -29,6 +29,19 @@ const frontController = {
     aboutUs: (req, res) => {
         res.render('sobreNosotros');
     },
+    programCard: async (req, res) => {
+        try {
+            const programa = await Program.findById(req.params.id);
+
+            return res.render('detalles', {
+                programa: programa
+            });
+
+        } catch (error) {
+            console.log(error);
+            res.render('error');
+        }
+    },
     programsList: async (req, res) => {
         try {
             const listaProgramas = await Program.find({});

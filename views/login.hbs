@@ -39,7 +39,6 @@
             if (response) {
                 // Guardar el token del header Authorization en un localStorage
                 localStorage.setItem('token', response.headers.get('Authorization'));
-                console.log(response.headers.get('UserRole'));
                 window.location.href = "/";
             } else {
                 alert('Invalid email or password');

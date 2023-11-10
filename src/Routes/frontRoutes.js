@@ -9,6 +9,7 @@ router.get('/login', frontController.login);
 router.get('/contactanos', frontController.contactUs);
 router.get('/sobreNosotros', frontController.aboutUs);
 router.get('/programas', frontController.programsList);
+router.get('/detalles/:id', frontController.programCard);
 router.get('/registrar', frontController.register);
 router.get('/logout', frontController.logout);
 router.get('/usersPanel', frontController.usersPanel);
