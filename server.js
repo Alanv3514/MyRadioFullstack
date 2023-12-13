@@ -4,8 +4,8 @@ const path = require('path');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const frontRouter = require("./Routes/frontRoutes.js");
-const router = require("./Routes/index.js");
+const frontRouter = require("./src/Routes/frontRoutes.js");
+const router = require("./src/Routes/index.js");
 const app = express();
 //settings
 app.set('port', process.env.PORT || 3000);
