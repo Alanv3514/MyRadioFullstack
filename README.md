@@ -31,3 +31,4 @@ npm run dev
 Deploy hecho en render
 myradiobackend.onrender.com/
 ##
+Para probar la app utilizar de email: admin@gmail.com y pass:admin
